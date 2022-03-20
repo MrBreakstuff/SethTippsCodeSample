@@ -8,6 +8,7 @@ public class JetBrainsHomepage extends BasePage {
 
     public JetBrainsHomepage(WebDriver driver) {
         super(driver);
+        _url = "https://jetbrains.com";
     }
 
     @FindBy(css = "a.wt-button_mode_primary")

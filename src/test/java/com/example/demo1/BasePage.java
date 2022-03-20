@@ -7,6 +7,8 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+
 public class BasePage {
 
     private static final int TIMEOUT = 5;
@@ -27,11 +29,8 @@ public class BasePage {
         _wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    protected void waitForElementToDisappear(By locator){
-        _wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
-    }
-
-    protected void waitForTextToDisappear(By locator, String text){
-        _wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(locator, text)));
+    public void switchTabs(){
+        ArrayList<String> tabs2 = new ArrayList<String> (_driver.getWindowHandles());
+        _driver.switchTo().window(tabs2.get(1));
     }
 }

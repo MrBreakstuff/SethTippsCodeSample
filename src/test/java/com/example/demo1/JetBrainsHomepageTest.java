@@ -16,14 +16,11 @@ public class JetBrainsHomepageTest extends BaseTest {
     public WebDriver driver;
     private JetBrainsHomepage jetBrainsHomepage;
 
-    public JetBrainsHomepageTest(WebDriver driver){
-        super(driver);
-    }
-    
     @BeforeMethod
     public void setUp() {
-        driver = new ChromeDriver(options);
-        jetBrainsHomepage = new JetBrainsHomepage(getDriver());
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        jetBrainsHomepage = new JetBrainsHomepage(getDriver(driver));
         driver.get(jetBrainsHomepage._url);
     }
 
@@ -43,8 +40,6 @@ public class JetBrainsHomepageTest extends BaseTest {
 
     @Test
     public void toolsMenu() {
-        JetBrainsHomepage jetBrainsHomepage = new JetBrainsHomepage(getDriver());
-
         jetBrainsHomepage.toolsMenu.click();
         
         assertTrue(jetBrainsHomepage.menuPopup.isDisplayed());
@@ -52,7 +47,6 @@ public class JetBrainsHomepageTest extends BaseTest {
 
     @Test
     public void navigationToAllTools() {
-        JetBrainsHomepage jetBrainsHomepage = new JetBrainsHomepage(getDriver());
         jetBrainsHomepage.seeAllToolsButton.click();
 
         WebElement productsList = driver.findElement(By.id("products-page"));
