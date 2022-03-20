@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="auto-awesome" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="auto-awesome" target="11" />
+      <module name="Framework" target="11" />
+      <module name="Page-Objects" target="11" />
+      <module name="Tests" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
